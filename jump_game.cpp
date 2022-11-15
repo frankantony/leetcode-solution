@@ -24,14 +24,14 @@ bool canJump(vector<int>& nums) {
 
 int main () {
 	int n, value;
-	vector<int> vet;
+	vector<int> nums;
 	cin >> n;
 	for (int i = 0; i < n; i++) {
 		cin >> value;
-		vet.push_back(value);
+		nums.push_back(value);
 	}
 	
-	cout << canJump (vet) << endl;
+	cout << canJump (nums) << endl;
 
 	return 0;
 }
