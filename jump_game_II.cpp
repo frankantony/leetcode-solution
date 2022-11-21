@@ -1,18 +1,21 @@
 #include<iostream>
 #include<vector>
+#include<climits>
 
 using namespace std;
 
-int jump (int i, int len, vector<int>& nums, vector<int> memorization) {
+long jump (int i, int len, vector<int>& nums, vector<int> memorization) {
 	if (i >= len - 1) return 0;
         
 	if (memorization[i] != -1) return memorization[i];
         
-	int m = 10005;
-	for (int k = 1; k <= nums[i]; k++) {
+	long m = INT_MAX;
+	for (int k = 1; k <= nums[i]; k++) 
 		m = min (m, 1 + jump (i + k, len, nums, memorization));
-	}    
-	return m;
+        
+	memorization[i] = m;
+        
+	return memorization[i];
 }
     
 int jump (vector<int>& nums) {
