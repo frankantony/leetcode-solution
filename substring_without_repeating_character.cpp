@@ -12,7 +12,8 @@ int lengthOfLongestSubstring (string s) {
 			i = max (i, table[s[j]]);
             
 		result = max (result, j - i + 1);
-		table[s[j++]] = j + 1;
+		table[s[j]] = j + 1;
+		j++;
 	}
         
 	return result;
