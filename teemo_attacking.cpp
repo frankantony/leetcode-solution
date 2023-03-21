@@ -11,11 +11,11 @@ public:
         intervals.push_back (Interval {start, end});
 
         for (int i = 1; i < len; i++) {
-            Interval interval = intervals.back();
-            if (interval.end < timeSeries[i])
+            Interval last = intervals.back();
+            if (last.end < timeSeries[i])
                 intervals.push_back(Interval {timeSeries[i], timeSeries[i] + duration - 1});
             else {
-                start = interval.start;
+                start = last.start;
                 end = max (end, timeSeries[i] + duration - 1);
                 intervals.back() = Interval {start, end};
             }
