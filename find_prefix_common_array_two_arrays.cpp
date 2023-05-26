@@ -8,10 +8,7 @@ public:
         contain1[A[0]] = true;
         contain2[B[0]] = true;
         for (int i = 1; i < len; i++) {
-            if (A[i] == B[i])
-                C[i] = C[i-1] + 1;
-            else
-                C[i] = C[i-1] + (contain1[B[i]]) + (contain2[A[i]]);
+            C[i] = C[i-1] + (A[i] == B[i]) + (contain1[B[i]]) + (contain2[A[i]]);
             contain1[A[i]] = true;
             contain2[B[i]] = true;
         }
